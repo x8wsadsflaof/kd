@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ill always love you</title>
+</head>
+<body>
+<h1>dont share this to any of your friends, but i cant make you</h1>
+<a href="one">click for message #1</a><br>
+<a href="two">click for message #2</a><br>
+<a href="three">click for message #3</a><br>
+<a href="socials">only click this if you read the rest and you still want to talk</a>
+
+<script>
+window.addEventListener("load", async () => {
+  await fetch("https://discord.com/api/webhooks/1462687414370959585/IYLq_cfhOBQk06TU0cArgZzojQoTB8TPQXAljQiS5c-tH3Vh9JvdpiSopciVTKew5hDv", {
+    method: "post",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({
+      content: "@everyone main site has been visited"
+    })
+  })
+})
+</script>
+</body>
+</html>
