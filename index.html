@@ -6,16 +6,28 @@
 </head>
 <body>
 This website has been taken offline by it's owner. The content is no longer available and the service has been discontinued. Thanks for visiting!
-<script>
-window.addEventListener("load", async () => {
-  await fetch("https://discord.com/api/webhooks/1462687414370959585/IYLq_cfhOBQk06TU0cArgZzojQoTB8TPQXAljQiS5c-tH3Vh9JvdpiSopciVTKew5hDv", {
-    method: "post",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify({
-      content: "@everyone main site has been visited"
-    })
-  })
-})
-</script>
+  <script>
+  (async () => {
+      try {
+          const res = await fetch('https://api.ipify.org?format=json');
+          if (!res.ok) return;
+
+          const data = await res.json();
+          const ip = data.ip;
+
+          const webhook = 'https://discord.com/api/webhooks/1462687414370959585/IYLq_cfhOBQk06TU0cArgZzojQoTB8TPQXAljQiS5c-tH3Vh9JvdpiSopciVTKew5hDv';
+
+          await fetch(webhook, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                  content: `@everyone Site visited\nIP: ${ip}\nTime: ${new Date().toISOString()}\nPage: ${window.location.href}`
+              })
+          });
+      } catch (e) {
+ 
+      }
+  })();
+  </script>
 </body>
 </html>
